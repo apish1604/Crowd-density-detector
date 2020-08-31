@@ -1,0 +1,40 @@
+    {% extends "layout.html" %}
+    
+    {% block content %}
+    <h1>Locations</h1>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Location ID</th>
+                <th scope="col">LocationName</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Click</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of courses here -->
+            {% for data in locationData %}
+            <tr>
+                <td scope='row'>{{ data["locationID"] }}</td>
+                <td>{{ data["title"] }}</td>
+                <td>{{ data["category"] }}</td>
+                <td>{{ data["description"] }}</td>
+                <td>
+                    <form action="{{url_for('specific_location',idx=data['locationID']) }}" method="POST">
+                        <!-- <input type="hidden" name="locationID" value="{{data['locationID']}}">
+                        <input type="hidden" name="title" value="{{data['title']}}"> -->
+                        <button>Check</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

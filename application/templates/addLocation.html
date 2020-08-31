@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+   
+{% block content %}
+
+<div class="container">
+     <form name="addLocation" action="" method="post" novalidate>
+    <fieldset class="form-group">
+        <legend>{{title}}</legend>     
+        {{ form.hidden_tag() }}       
+            <p> {{ form.title.label }}</br>
+                {{ form.title }}
+                {% for error in form.title.errors %}
+                 <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </p>
+        
+            <p> {{ form.IPaddress.label }}</br>
+                {{ form.IPaddress }}
+                {% for error in form.IPaddress.errors %}
+                 <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </p>
+        
+            <p> {{ form.description.label }}</br>
+                {{ form.description }}
+                {% for error in form.description.errors %}
+                 <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p> {{ form.category.label }}</br>
+                {{ form.category }}
+                {% for error in form.category.errors %}
+                 <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </p>
+        
+            <p> 
+                {{ form.submit() }}
+            </p>
+        
+    </fieldset>
+    </form>
+</div>
+{% endblock %}
